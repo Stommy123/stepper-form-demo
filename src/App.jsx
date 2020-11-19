@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Home, Previous, Submit } from './components';
 import { emptyFormData, schema } from './constants';
+import { mockRequest } from './utils';
 
 const App = _ => {
   const [formData, setFormData] = useState(emptyFormData);
@@ -11,7 +12,7 @@ const App = _ => {
     setFormData({ ...formData, [field]: evt.target.value });
   };
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault();
 
     const nextForm = activeSchema?.next;
@@ -22,8 +23,9 @@ const App = _ => {
     }
 
     // usually an api call would happen here
+    await mockRequest('/some-backend-route', formData);
     toast.info('Form successfully submitted');
-    console.log('Submitted data', formData);
+
     setFormData(emptyFormData);
     setActiveSchema(null);
   };
