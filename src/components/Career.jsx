@@ -21,12 +21,10 @@ const CareerForm = ({ handleChange, formData }) => (
       />
     </div>
     <div className='form-group'>
-      <label>Length of Employment (Months)</label>
-      <select onChange={handleChange('employmentDuration')}>
+      <label>Length of Employment (Years)</label>
+      <select onChange={handleChange('employmentDuration')} value={formData.employmentDuration}>
         {[1, 2, 3, 4, 5, 6].map(duration => (
-          <option key={duration} value={duration}>
-            {duration}
-          </option>
+          <option key={duration}>{duration}</option>
         ))}
       </select>
     </div>

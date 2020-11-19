@@ -8,7 +8,7 @@ export const emptyFormData = {
   dreamVacation: '',
   employer: '',
   jobTitle: '',
-  employmentDuration: '',
+  employmentDuration: 1,
 };
 
 export const schema = {
